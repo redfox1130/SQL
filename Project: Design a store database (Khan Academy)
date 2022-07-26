@@ -1,0 +1,43 @@
+--Create your own store! Your store should sell one type of things, like clothing or bikes, whatever you want your store to specialize in. 
+You should have a table for all the items in your store, and at least 5 columns for the kind of data you think you'd need to store. 
+You should sell at least 15 items, and use select statements to order your items by price and show at least one statistic about the items.
+
+
+CREATE TABLE store_items (id INTEGER PRIMARY KEY, name TEXT, aisle INTEGER, quantity INTEGER, rating INTEGER, price INTEGER);
+
+INSERT INTO store_items VALUES (1, "Tires", 13, 8, 6, 100),
+(2, "Bicycles", 15, 9, 7, 20),
+(3, "Cabinets", 11, 4, 6, 30),
+(4, "Tide", 5, 3, 5, 6),
+(5, "Calmoseptine", 8, 14, 9, 8),
+(6, "Dial Soap", 3, 2, 9, 2),
+(7, "Vegetable Soup", 2, 24, 7, 1),
+(8, "Sprite Zero", 3, 9, 10, 2),
+(9, "Pepsi", 3, 10, 10, 2),
+(10, "Peas", 4, 21, 6, 1),
+(11, "Can Opener", 1, 9, 3, 3),
+(12, "USB Phone Chargers", 18, 4, 9, 6),
+(13, "Smart TV", 18, 2, 5, 50),
+(14, "Headphones", 18, 1, 9, 15),
+(15, "Duracell AA Batteries", 18, 3, 7, 8);
+
+
+
+
+--Sort the items listed by price (cheapest to most expensive)
+
+SELECT * FROM store_items ORDER BY price asc;
+
+
+
+
+--Sort the items by the aisle located in (highest to lowest)
+
+SELECT * FROM store_items ORDER BY aisle desc;
+
+
+
+
+--How many total items are in your store?
+
+SELECT SUM (quantity) FROM store_items;
