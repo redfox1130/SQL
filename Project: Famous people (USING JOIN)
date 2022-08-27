@@ -1,0 +1,69 @@
+/* Create table about the people and what they do here */
+
+CREATE TABLE Movie_Stars (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, movies TEXT, age INTEGER);
+
+
+
+INSERT INTO Movie_Stars (name, movies, age) VALUES ("Tom Hanks", "Toy Story", 66),
+("Dwayne Johnson", "The Gridiron Gang", 50),
+("John Cena", "Vacation Friends", 45),
+("Leonardo Dicaprio", "Wolf Of Wall Street", 47),
+("Sandra Bullock", "The Unforgiveable", 58),
+("Johnny Depp", "Sleepy Hollow", 59);
+
+
+CREATE TABLE Partners (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, partner INTEGER);
+
+INSERT INTO Partners (name, partner) VALUES ("Rita Wilson", 1),
+("Lauren Hashian", 2),
+("Shay Shariatzadeh", 3),
+("Camila Morrone", 4),
+("Bryan Randall", 5),
+("Polina Glen", 6);
+
+
+CREATE TABLE hobbies (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT);
+INSERT INTO hobbies (name) VALUES ("Biking"),
+("Swimming"),
+("Running"),
+("Traveling"),
+("Speaking"),
+("Networking");
+
+
+
+CREATE TABLE alternate_actor (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT);
+INSERT INTO alternate_actor (name) VALUES ("John Cena"),
+("Johnny Depp"),
+("Tom Hanks"),
+("Leonardo Dicaprio"),
+("Dwayne Johnson");
+
+
+
+
+/* Display the name of each movie star along with their partner's name */
+
+
+SELECT Movie_Stars.name AS Actors_Name, Partners.name AS Partners_Name FROM Movie_Stars
+JOIN Partners
+ON Movie_Stars.id = Partners.partner;
+
+
+
+
+/* Display the name of each movie star and their favorite hobby */
+
+
+SELECT Movie_Stars.name AS Actor_Name, hobbies.name AS Favorite_hobby
+FROM Movie_Stars 
+JOIN hobbies
+ON Movie_Stars.id = hobbies.id;
+
+
+
+/* Display the name of each alternate actor along with the movie they will fill in for */
+
+
+SELECT a.name AS Alternate_Actor, m.movies FROM alternate_actor a
+JOIN Movie_stars m ON a.id = m.id
